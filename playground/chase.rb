@@ -3,7 +3,7 @@ require "faderuby"
 
 client = FadeRuby::Client.new("10.100.131.22", 7890)
 
-strip = FadeRuby::Strip.new(50)
+strip = FadeRuby::Strip.new(100)
 
 
 length = strip.pixels.length
@@ -11,6 +11,7 @@ at = 0
 direction = 1
 
 while true
+	puts at
 	strip.pixels.each do |pix|
 		pix.set(r: 0, g: 0, b: 0)
 	end
@@ -24,5 +25,5 @@ while true
 		at += direction
 	end
 
-	sleep 0.01
+	sleep 0.1
 end
