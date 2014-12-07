@@ -1,0 +1,1 @@
+5.times { client.set_pixels((0..99).map{|i| [rand(255), rand(255), rand(255)] }.flatten, 0); sleep 2; }
