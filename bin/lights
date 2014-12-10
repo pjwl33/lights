@@ -11,8 +11,15 @@ end
 
 pixels = Array.new(opts[:pixels])
 client = FadeRuby::Client.new(opts[:server], opts[:port])
+# red = { r: 0, g: 255, b: 0 }
+# green = { r: 255, g: 0, b: 0 }
+# white = { r: 255, g: 255, b: 255 }
+# color = [red, white, green].sample
 
 while true
-	client.set_pixels(pixels.map{|i| [rand(255), rand(255), rand(255)] }.flatten, 0)
-	sleep 2
+	client.set_pixels(pixels.map{|i| [rand(0), rand(255), rand(255)] }.flatten, 0)
+
+  bpm = 40
+  interval = (60 / bpm).round(2)
+  sleep interval
 end
