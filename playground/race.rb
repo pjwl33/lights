@@ -6,7 +6,7 @@ strip = FadeRuby::Strip.new(100)
 blank = {r: 0, g: 0, b: 0}
 nums = (0..98).step(8).to_a
 counter = 0
-interval = 0
+interval = 1.2
 
 while true
   red = { r: 0, g: rand(255), b: rand(255) }
@@ -27,11 +27,13 @@ while true
     end
     counter += 1
   end
-  if interval >= 1.5
-    interval = 0
+
+  # all assumed on a 120 bpm song
+  if interval <= 0.135
+    interval = 0.135
   end
 
   client.write(strip)
   sleep interval
-  interval += 0.01
+  interval -= 0.03125
 end

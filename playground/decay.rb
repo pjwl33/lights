@@ -4,9 +4,9 @@ client = FadeRuby::Client.new("10.100.130.22", 7890)
 strip = FadeRuby::Strip.new(100)
 
 blank = {r: 0, g: 0, b: 0}
-nums = (0..98).step(8).to_a
+# nums = (0..98).step(8).to_a
 counter = 0
-interval = 1.5
+interval = 0.1
 
 while true
   red = { r: 0, g: rand(255), b: rand(255) }
@@ -27,11 +27,12 @@ while true
     end
     counter += 1
   end
-  if interval <= 0
-    interval = 1.5
-  end
+
+  # if interval >= 1.0
+  #   interval = 0.1
+  # end
 
   client.write(strip)
   sleep interval
-  interval -= 0.01
+  interval += 0.03125
 end
